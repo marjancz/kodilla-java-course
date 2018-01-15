@@ -1,4 +1,4 @@
-package com.kodilla.module_04;
+package com.marjancz.module_04;
 
 public class FirstClass {
 }
