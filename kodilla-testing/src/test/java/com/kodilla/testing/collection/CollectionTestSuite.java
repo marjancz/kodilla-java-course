@@ -42,16 +42,10 @@ public class CollectionTestSuite {
 
         //Given
         ArrayList<Integer> listNumbers = new ArrayList<>();
-        ArrayList<Integer> evenNumbers = new ArrayList<>();
         Random random = new Random();
         for(int i=0; i<100; i++) {
             int randomNum = (random.nextInt(100) + 1);
             listNumbers.add(randomNum);
-        }
-        for (int i = 0; i < 100; i++) {
-            if (listNumbers.get(i) % 2 == 0) {
-                evenNumbers.add(listNumbers.get(i));
-            }
         }
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
 
