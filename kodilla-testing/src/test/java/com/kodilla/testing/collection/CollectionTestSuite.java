@@ -42,10 +42,19 @@ public class CollectionTestSuite {
 
         //Given
         ArrayList<Integer> listNumbers = new ArrayList<>();
+
         Random random = new Random();
         for(int i=0; i<100; i++) {
-            int randomNum = (random.nextInt(100) + 1);
-            listNumbers.add(randomNum);
+            int num = i + 1;
+        //    int randomNum = (random.nextInt(100) + 1);
+            listNumbers.add(num);
+        }
+        ArrayList<Integer> evenNumbers = new ArrayList<>();
+        for(int n=0; n<listNumbers.size(); n++) {
+            int eNum = listNumbers.get(n);
+            if(eNum %2 == 0) {
+              evenNumbers.add(eNum);
+            }
         }
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
 
@@ -54,6 +63,6 @@ public class CollectionTestSuite {
         System.out.println("Testing if list contains even and odd numbers");
 
         //Then
-        Assert.assertEquals(listNumbers.size(), evenList.size());
+        Assert.assertEquals(evenNumbers.size(), evenList.size());
     }
 }
