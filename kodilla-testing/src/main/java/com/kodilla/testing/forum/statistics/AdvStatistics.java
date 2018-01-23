@@ -13,12 +13,12 @@ public class AdvStatistics {
         posts = statistics.postsCount();
         comments = statistics.commentsCount();
 
-        try {
+        if (posts!=0){
+            commentsPerPost = comments / posts;
+        }
+        if(users !=0){
             postsPerUser = posts / users;
             commentsPerUser = comments / users;
-            commentsPerPost = comments / posts;
-        } catch (ArithmeticException e) {
-            throw new ArithmeticException("Cannot divide by 0");
         }
     }
 

@@ -3,6 +3,7 @@ package com.kodilla.testing.forum.statistics;
 import org.junit.*;
 
 import java.util.*;
+import java.lang.ArithmeticException;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -38,13 +39,11 @@ public class AdvStatisticsTestSuite {
         int comments = 100;
         double postsPerUser = posts / users.size();
         double commentsPerUser = comments / users.size();
-        double commentsPerPost = comments / posts;
+        double commentsPerPost = 0.0;
         try {
-            postsPerUser = posts / users.size();
-            commentsPerUser = comments / users.size();
             commentsPerPost = comments / posts;
         } catch (ArithmeticException e) {
-            throw new ArithmeticException("Cannot divide by zero");
+            System.out.println("Error!!!. There's no posts so cannot be divided by zero");
         }
         //Given
         Statistics StatisticsMock = mock(Statistics.class);
@@ -203,15 +202,14 @@ public class AdvStatisticsTestSuite {
         List<String> users = new ArrayList<>();
         int posts = 1000;
         int comments = 100;
-        double postsPerUser = posts / users.size();
-        double commentsPerUser = comments / users.size();
+        double postsPerUser = 0; //posts / users.size();
+        double commentsPerUser = 0; //comments / users.size();
         double commentsPerPost = comments / posts;
         try {
             postsPerUser = posts / users.size();
             commentsPerUser = comments / users.size();
-            commentsPerPost = comments / posts;
         } catch (ArithmeticException e) {
-            throw new ArithmeticException("Cannot divide by zero");
+            System.out.println("Error!!! There's no users so cannot be divided by zero!!!");
         }
         //Given
         Statistics StatisticsMock = mock(Statistics.class);
