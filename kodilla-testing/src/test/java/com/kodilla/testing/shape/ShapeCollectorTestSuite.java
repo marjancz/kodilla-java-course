@@ -28,8 +28,6 @@ public class ShapeCollectorTestSuite {
         System.out.println("Test No. #" + testCounter + " has been executed successfully.");
     }
 
-    private Shape shape;
-
     @Test
     public void addFigure() {
         //given
