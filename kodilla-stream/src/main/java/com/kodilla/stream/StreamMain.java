@@ -1,83 +1,70 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.book.Book;
+import com.kodilla.stream.book.BookDirectory;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+import com.kodilla.stream.person.People;
 
-import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        /**First example 7.1
-         * System.out.println("Welcome to module 7 - Stream");
-         *
-         * //Second example 7.1
-         * SaySomething saySomething = new SaySomething();
-         * saySomething.say();
-         *
-         * //Third example 7.1
-         * Processor processor = new Processor();
-         * ExecuteSaySomething executeSaySomething = new ExecuteSaySomething();
-         * processor.execute(executeSaySomething);
-         *
-         * //Fourth example 7.1
-         * Processor processor = new Processor();
-         * Executor codeToExecute = () -> System.out.println("This is an example text.");
-         * processor.execute(codeToExecute);
-         *
-         * //Fifth example 7.1
-         * Processor processor = new Processor();
-         * processor.execute(() -> System.out.println("This is an example text."));
-         *
-         * //Sixth example 7.1
-         * ExpressionExecutor expressionExecutor = new ExpressionExecutor();
-         * expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-         * expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-         * expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-         * expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-         *
-         * //Seventh example 7.1
-         * ExpressionExecutor expressionExecutor = new ExpressionExecutor();
-         * System.out.println("Calculating expressions with lambdas");
-         * expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-         * expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-         * expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-         * expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-         *
-         * System.out.println("Calculating expressions with method references");
-         * expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-         * expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
-         * expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
-         * expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
-         *
-         * //Work 7.1
-         * PoemBeautifier poemBeautifier = new PoemBeautifier();
-         * String wife = "My beautiful JOANA";
-         * poemBeautifier.beautify(wife, text -> "***" + text + "***");
-         * poemBeautifier.beautify(wife, text -> "LOVE " + "\"" + toUpperCase(wife) + "\"" + " LOVE");
-         * poemBeautifier.beautify(wife, text -> "I Love my " + text.substring(13,18));
-         * poemBeautifier.beautify(wife, text -> text.startsWith("") + " " + text + " " + text.endsWith(""));
-         *
-         *
-         *
-         *
-         */
+//        //an example
+//        People.getList().stream()
+//                .map(s -> s.toUpperCase())
+//                .filter(s -> s.length()>11)
+//                .map(s -> s.substring(0, s.indexOf(' ')+ 2) + ".")
+//                .filter(s -> s.substring(0,1).equals("M"))
+//                .forEach(System.out::println);
 
-        //an example 7.2
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+//        //an example
+//        BookDirectory theBookDirectory = new BookDirectory();
+//        theBookDirectory.getList().stream()
+//                .filter(book -> book.getYearOfPublication() > 2005)
+//                .forEach(System.out::println);
 
+//        //an example of collector of list collection
+//        BookDirectory theBookDirectory = new BookDirectory();
+//        List<Book> theResultListOfBooks = theBookDirectory.getList().stream()
+//                .filter(book -> book.getYearOfPublication() > 2005)
+//                .collect(Collectors.toList());
+//        System.out.println("# elements: " + theResultListOfBooks.size());
+//        theResultListOfBooks.stream()
+//                .forEach(System.out::println);
 
+//        //an example collector of map collection
+//        BookDirectory theBookDirectory = new BookDirectory();
+//        Map<String, Book> theResultMapOfBooks = theBookDirectory.getList().stream()
+//                .filter(book -> book.getYearOfPublication() > 2005)
+//                .collect(Collectors.toMap(Book::getSignature, book -> book));
+//        System.out.println("# elements: " + theResultMapOfBooks.size());
+//        theResultMapOfBooks.entrySet().stream()
+//                .map(entry -> entry.getKey() + ": " + entry.getValue())
+//                .forEach(System.out::println);
 
+//        //an example of collector.joining()
+//        BookDirectory theBookDirectory = new BookDirectory();
+//        String theResultStringOfBooks = theBookDirectory.getList().stream()
+//                .filter(book -> book.getYearOfPublication() > 2005)
+//                .map(Book::toString)
+//                .collect(Collectors.joining(">,\n<","<< "," >>"));
+//
+//        System.out.println(theResultStringOfBooks);
 
-
-
-
-
-
-
-
-
+        //work 7.3
+        Forum forum = new Forum();
+        //List<ForumUser> theListOfForumUser =
+        Map<Integer, ForumUser> theMapOfUsers = forum.getUserList().stream()
+                .filter(s -> s.getSex() == 'M')
+                .filter(forumUser -> (2018 - forumUser.getBirthDate() >= 20))
+                .filter(forumUser -> forumUser.getPostCount() >= 1)
+                .collect(Collectors.toMap(ForumUser::getPersonalId, user -> user));
+        System.out.println("# elements: " + theMapOfUsers.size());
+        theMapOfUsers.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
     }
 }
