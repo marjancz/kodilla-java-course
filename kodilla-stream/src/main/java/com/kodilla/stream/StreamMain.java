@@ -56,13 +56,12 @@ public class StreamMain {
 
         //work 7.3
         Forum forum = new Forum();
-        //List<ForumUser> theListOfForumUser =
         Map<Integer, ForumUser> theMapOfUsers = forum.getUserList().stream()
                 .filter(s -> s.getSex() == 'M')
                 .filter(forumUser -> (2018 - forumUser.getBirthDate() >= 20))
                 .filter(forumUser -> forumUser.getPostCount() >= 1)
                 .collect(Collectors.toMap(ForumUser::getPersonalId, user -> user));
-        System.out.println("# elements: " + theMapOfUsers.size());
+        System.out.println("The list of special criterions forum has: #" + theMapOfUsers.size() + " user(s).");
         theMapOfUsers.entrySet().stream()
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
