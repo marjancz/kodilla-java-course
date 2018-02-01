@@ -94,6 +94,7 @@ public class StreamMain {
                 .filter(s -> s.getSex() == 'M')
                 .filter((ForumUser s) -> 2018 - s.getBirthDate() >= 20)
                 .filter((ForumUser forumUser) -> forumUser.getPostCount() >= 1)
+                .peek(System.out::println)
                 .collect(Collectors.toMap(ForumUser::getPersonalId, user -> user));
         System.out.println("The list of special criterions forum has: #" + theMapOfUsers.size() + " user(s).");
         theMapOfUsers.entrySet().stream()
