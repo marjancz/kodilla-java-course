@@ -6,7 +6,6 @@ public class FirstChallenge {
     private double a;
     private double b;
 
-
     public double divide(double a, double b) throws ArithmeticException {
         this.a = a;
         this.b = b;
@@ -17,11 +16,6 @@ public class FirstChallenge {
         return a / b;
     }
 
-    /**
-     * This main can throw an ArithmeticException!!!
-     *
-     * @param args
-     */
     public static void main(String[] args) {
 
         FirstChallenge firstChallenge = new FirstChallenge();
