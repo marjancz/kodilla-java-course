@@ -20,19 +20,14 @@ public class FirstChallenge {
 
         FirstChallenge firstChallenge = new FirstChallenge();
         double a = 3;
-        double b = 0;
-        if (b != 0) {
-            double result = a / b;
-            System.out.println("Division result " + a + " by " +
-                    b + " is: " + result);
-        } else {
-            try {
-                double result = firstChallenge.divide(a, b);
-            } catch (ArithmeticException e) {
-                System.out.println("Error! Cannot divide by zero!");
-            } finally {
-                System.out.println("Failed to divide by zero!");
-            }
+        double b = 2;
+
+        try {
+            double result = firstChallenge.divide(a, b);
+        } catch (ArithmeticException e) {
+            System.out.println("Error! Cannot divide by zero!");
+        } finally {
+            System.out.println("End of dividing process!");
         }
     }
 }
