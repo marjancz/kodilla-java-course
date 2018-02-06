@@ -1,6 +1,6 @@
 package com.kodilla.exception.test;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
+import java.io.IOException;
 
 public class FirstChallenge {
     private double a;
@@ -21,13 +21,14 @@ public class FirstChallenge {
         FirstChallenge firstChallenge = new FirstChallenge();
         double a = 3;
         double b = 0;
+        double result = Double.NaN;
 
         try {
-            firstChallenge.divide(a, b);
+            result = firstChallenge.divide(a, b);
         } catch (ArithmeticException e) {
             System.out.println("Error! Cannot divide by zero!");
         } finally {
-            System.out.println("Division result: " + a/b);
+            System.out.println("Division result: " + result);
         }
     }
 }
