@@ -1,10 +1,10 @@
 package com.kodilla.good.patterns.challenges.Allegro;
 
 public class Commodity {
-    private  String name;
-    private  double price;
+    private  final String name;
+    private  final double price;
 
-    public Commodity(String name, double price) {
+    public Commodity(final String name, final double price) {
         this.name = name;
         this.price = price;
     }
@@ -19,8 +19,6 @@ public class Commodity {
 
     @Override
     public String toString() {
-        return "Commodity{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Commodity: '" + name + '\'';
     }
 }

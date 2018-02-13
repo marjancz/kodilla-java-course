@@ -3,12 +3,13 @@ package com.kodilla.good.patterns.challenges.Allegro;
 import java.time.LocalDateTime;
 
 public class OrderRequest {
-    private LocalDateTime orderDate;
-    private User user;
-    private Commodity commodity;
-    private int quantity;
+    private final LocalDateTime orderDate;
+    public User user;
+    public Commodity commodity;
+    private final int quantity;
 
-    public OrderRequest(LocalDateTime orderDate, User user, Commodity commodity, int quantity) {
+    public OrderRequest(final LocalDateTime orderDate, User user,
+                        Commodity commodity, final int quantity) {
         this.orderDate = orderDate;
         this.user = user;
         this.commodity = commodity;
@@ -34,7 +35,8 @@ public class OrderRequest {
     @Override
     public String toString() {
         return "OrderRequest{" +
-                "commodity=" + commodity.getName() +
+                "commodity=" + commodity +
+                ", quantity=" + quantity +
                 '}';
     }
 }

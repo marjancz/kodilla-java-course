@@ -1,10 +1,10 @@
 package com.kodilla.good.patterns.challenges.Allegro;
 
 public class User {
-    private String name;
-    private String surname;
-    private String eMail;
-    private String mobile;
+    private final String name;
+    private final String surname;
+    private final String eMail;
+    private final String mobile;
 
     public User(final String name, final String surname, final String eMail, final String mobile) {
         this.name = name;
@@ -31,11 +31,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", eMail='" + eMail + '\'' +
-                ", mobile='" + mobile + '\'' +
-                '}';
+        return "User: " +
+                "\n name: '" + name + '\'' +
+                "\n surname: '" + surname + '\'' +
+                "\n eMail: '" + eMail + '\'' +
+                "\n mobile: '" + mobile + '\'';
     }
 }

@@ -4,7 +4,6 @@ public class SocketOrderService implements OrderService {
 
     @Override
     public boolean createOrder(OrderRequest orderRequest) {
-
         return true;
     }
 }

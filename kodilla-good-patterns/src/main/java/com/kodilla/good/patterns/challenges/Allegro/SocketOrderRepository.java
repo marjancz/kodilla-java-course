@@ -4,7 +4,6 @@ public class SocketOrderRepository implements OrderRepository{
 
     @Override
     public boolean createRepo(OrderRequest orderRequest) {
-
-        return false;
+        return true;
     }
 }
