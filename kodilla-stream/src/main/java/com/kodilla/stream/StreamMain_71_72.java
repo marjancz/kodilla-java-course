@@ -59,25 +59,10 @@ public class StreamMain_71_72 {
          * poemBeautifier.beautify(wife, text -> "I Love my " + text.substring(13,18));
          * poemBeautifier.beautify(wife, text -> text.startsWith("") + " " + text + " " + text.endsWith(""));
          *
-         *
-         *
-         *
          */
 
         //an example 7.2
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
