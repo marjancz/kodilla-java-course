@@ -12,7 +12,7 @@ public class ProviderRequestRetriever {
 
         LocalDateTime orderDate = LocalDateTime.of(2018, 2, 10, 12, 0);
 
-        Provider extraFoodShop = new Provider("ExtraFoodShop",
+        Provider extraFoodShop = new ExtraFoodShop("ExtraFoodShop",
                             "ExtraFoodShop@ExtraFoodShop.pl", "123123123");
 //        Provider healthyShop = new Provider("HealthyShop", "HealthyShop@HealthyShop.pl",
 //                            "987987987");
@@ -25,11 +25,6 @@ public class ProviderRequestRetriever {
 //                2.85), new Product("Corn bread", 20, 1.19));
 //        List<Product> glutenFreeShopList = Arrays.asList(new Product("Gluten-free flour",
 //                40, 3.25), new Product("Gluten-free milk", 30, 2.79));
-//        Map<Provider, List<Product>> providerOrderList =
-//                new HashMap<>();
-//        providerOrderList.put(extraFoodShop, extraFoodShopList);
-//        providerOrderList.put(healthyShop, healtyShopList);
-//        providerOrderList.put(glutenFreeShop, glutenFreeShopList);
 
         return new ProviderRequest(orderDate, extraFoodShop, extraFoodShopList);
     }

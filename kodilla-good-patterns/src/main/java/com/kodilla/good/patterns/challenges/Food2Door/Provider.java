@@ -11,6 +11,10 @@ public class Provider {
         this.mobile = mobile;
     }
 
+    public boolean process(ProviderRequest providerRequest) {
+        return true;
+    }
+
     public String getName() {
         return name;
     }

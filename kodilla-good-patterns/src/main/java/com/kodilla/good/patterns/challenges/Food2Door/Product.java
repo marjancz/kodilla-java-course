@@ -11,6 +11,10 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public boolean process(ProviderRequest providerRequest) {
+        return true;
+    }
+
     public String getName() {
         return name;
     }

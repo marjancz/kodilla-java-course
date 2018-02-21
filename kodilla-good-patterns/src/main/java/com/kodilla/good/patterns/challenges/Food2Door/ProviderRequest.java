@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.challenges.Food2Door;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +10,7 @@ public class ProviderRequest {
     public Provider provider;
     List<Product> orderList;
 
-        public ProviderRequest(LocalDateTime orderDate, Provider provider,
+    public ProviderRequest(LocalDateTime orderDate, Provider provider,
                            List<Product> orderList) {
         this.orderDate = orderDate;
         this.provider = provider;
