@@ -30,10 +30,13 @@ public class ProviderRequest {
 
     @Override
     public String toString() {
-        System.out.println("Product order list:\n");
+        System.out.println("Product order date:\n" +
+                orderDate.toString());
+        System.out.println("\nProduct order list:\n");
         for (Product product : orderList) {
             System.out.println(product);
         }
+        System.out.println("\nfor " + provider.toString());
         return "";
     }
 }
