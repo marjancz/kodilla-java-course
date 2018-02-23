@@ -1,9 +1,9 @@
 package com.kodilla.good.patterns.challenges.Flights;
 
 public class Flight {
-    private String departureAirport;
-    private String arrivalAirport;
-    private String viaAirport;
+    private final String departureAirport;
+    private final String arrivalAirport;
+    private final String viaAirport;
 
     public Flight(String departureAirport, String arrivalAirport, String viaAirport) {
         this.departureAirport = departureAirport;
@@ -45,10 +45,10 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight:" +
-                "\ndepartureAirport='" + departureAirport + '\'' +
-                "\narrivalAirport='" + arrivalAirport + '\'' +
-                "\nviaAirport='" + viaAirport + '\'';
+        return "Flight:\n" +
+                "   " + " departureAirport='" + departureAirport + '\'' +
+                "\n   " + " arrivalAirport='" + arrivalAirport + '\'' +
+                "\n   " + " viaAirport='" + viaAirport + '\'';
     }
 }
 
