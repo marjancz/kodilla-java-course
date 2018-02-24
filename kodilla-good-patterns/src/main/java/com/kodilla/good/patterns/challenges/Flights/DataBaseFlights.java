@@ -1,6 +1,5 @@
 package com.kodilla.good.patterns.challenges.Flights;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,7 +19,6 @@ public class DataBaseFlights {
                 new Flight("Radom", "Cracow", "Lodz"),
                 new Flight("Poznan", "Radom", "Lodz"),
                 new Flight("Poznan", "Gdansk", "Radom"));
-
     }
 
     public List<Flight> getFlightList() {
