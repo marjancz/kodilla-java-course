@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.challenges.Flights;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class FlightFinderService {
@@ -17,7 +18,7 @@ public class FlightFinderService {
         } else {
             System.out.println("The list of flights from " + from + ":\n");
             for (int i = 0; i < flightsFrom.size(); i++) {
-                System.out.println(i + 1 + ". " + flightsFrom.get(i));
+                System.out.println(i+1 + ". " + flightsFrom.get(i));
             }
         }
     }
@@ -42,24 +43,39 @@ public class FlightFinderService {
     public void processVia(FlightRequest flightRequest) {
         String from = flightRequest.getFlightFrom();
         String to = flightRequest.getFlightTo();
-        String via = flightRequest.getFlightVia();
 
-        List<Flight> flightsVia = flightRequest.getFlightList().stream()
+        List<Flight> flightsDep = flightRequest.getFlightList().stream()
                 .filter(f -> f.getDepartureAirport().equals(from))
-                .filter(t -> t.getArrivalAirport().equals(to))
-                .filter(v -> v.getViaAirport().equals(via))
+                .filter(t -> !t.getArrivalAirport().equals(to))
                 .collect(Collectors.toList());
+
+        List<Flight> flightsArr = flightRequest.getFlightList().stream()
+                .filter(t -> t.getArrivalAirport().equals(to))
+                .filter(f -> !f.getDepartureAirport().equals(from))
+                .collect(Collectors.toList());
+
+        List<Flight> flightsVia = new ArrayList<>();
+        for(Flight list1 : flightsDep) {
+            for(Flight list2 : flightsArr) {
+                if(list1.getArrivalAirport().equals(list2.getDepartureAirport())) {
+                    flightsVia.add(list1);
+                    flightsVia.add(list2);
+                }
+            }
+        }
+
         if (flightsVia.size() == 0) {
-            System.out.println("There's no flights:" +
+            System.out.println("There's no flights has been found:" +
                     "\n  from: \' " + from + "\'" +
                     "\n  to: \' " + to + "\' " +
-                    "\n  via: \'" + via + "\'\n" +
-                    "\nhas been found");
+                    "\n  with intermediate airport");
         } else {
-            System.out.println("The list of flights via " + "\'" +
-                    via + "\':\n");
+            System.out.println("The list of flights " +
+                    "\n  from: \'" + from + "\'" +
+                    "\n  to: \'" + to + "\' " +
+                    "\n  with intermediate airport");
             for (int i = 0; i < flightsVia.size(); i++) {
-                System.out.println(i + 1 + ". " + flightsVia.get(i));
+                System.out.println(i+1 + ". " + flightsVia.get(i));
             }
         }
     }

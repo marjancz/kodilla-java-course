@@ -5,13 +5,11 @@ import java.util.List;
 public class FlightRequestRetriever {
 
     public FlightRequest retrieve() {
-        String flightFrom = "Lodz";
-        String flightTo = "Cracow";
-        String flightVia = "Warsaw";
+        String flightFrom = "Cracow";
+        String flightTo = "Gdansk";
 
         List<Flight> flightList = new DataBaseFlights().getFlightList();
-        flightList.toString();
 
-        return new FlightRequest(flightFrom, flightTo, flightVia, flightList);
+        return new FlightRequest(flightFrom, flightTo, flightList);
     }
 }

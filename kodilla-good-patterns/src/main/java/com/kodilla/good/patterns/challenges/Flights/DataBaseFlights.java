@@ -7,18 +7,18 @@ public class DataBaseFlights {
     private final List<Flight> flightList;
 
     public DataBaseFlights() {
-        flightList = Arrays.asList(new Flight("Warsaw", "Gdansk", "direct"),
-                new Flight("Warsaw", "Cacow", "Lodz"),
-                new Flight("Radom", "Gdansk", "Warsaw"),
-                new Flight("Gdansk", "Cracow", "direct"),
-                new Flight("Gdansk", "Lodz", "direct"),
-                new Flight("Lodz", "Cracow", "Warsaw"),
-                new Flight("Warsaw", "Poznan", "direct"),
-                new Flight("Cracow", "Poznan", "Gdansk"),
-                new Flight("Cracow", "Radom", "Lodz"),
-                new Flight("Radom", "Cracow", "Lodz"),
-                new Flight("Poznan", "Radom", "Lodz"),
-                new Flight("Poznan", "Gdansk", "Radom"));
+        flightList = Arrays.asList(new Flight("Warsaw", "Gdansk"),
+                new Flight("Warsaw", "Cracow"),
+                new Flight("Radom", "Gdansk"),
+                new Flight("Gdansk", "Cracow"),
+                new Flight("Gdansk", "Lodz"),
+                new Flight("Lodz", "Cracow"),
+                new Flight("Warsaw", "Poznan"),
+                new Flight("Cracow", "Poznan"),
+                new Flight("Cracow", "Radom"),
+                new Flight("Radom", "Cracow"),
+                new Flight("Poznan", "Radom"),
+                new Flight("Poznan", "Gdansk"));
     }
 
     public List<Flight> getFlightList() {

@@ -3,12 +3,10 @@ package com.kodilla.good.patterns.challenges.Flights;
 public class Flight {
     private final String departureAirport;
     private final String arrivalAirport;
-    private final String viaAirport;
 
-    public Flight(String departureAirport, String arrivalAirport, String viaAirport) {
+    public Flight(String departureAirport, String arrivalAirport) {
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
-        this.viaAirport = viaAirport;
     }
 
     public String getDepartureAirport() {
@@ -19,10 +17,6 @@ public class Flight {
         return arrivalAirport;
     }
 
-    public String getViaAirport() {
-        return viaAirport;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,24 +25,21 @@ public class Flight {
         Flight flight = (Flight) o;
 
         if (!departureAirport.equals(flight.departureAirport)) return false;
-        if (!arrivalAirport.equals(flight.arrivalAirport)) return false;
-        return viaAirport.equals(flight.viaAirport);
+        return arrivalAirport.equals(flight.arrivalAirport);
     }
 
     @Override
     public int hashCode() {
         int result = departureAirport.hashCode();
         result = 31 * result + arrivalAirport.hashCode();
-        result = 31 * result + viaAirport.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
         return "Flight:\n" +
-                "   " + " departureAirport='" + departureAirport + '\'' +
-                "\n   " + " arrivalAirport='" + arrivalAirport + '\'' +
-                "\n   " + " viaAirport='" + viaAirport + '\'';
+                "   " + " departureAirport= '" + departureAirport + '\'' +
+                "\n   " + " arrivalAirport= '" + arrivalAirport + '\'';
     }
 }
 
