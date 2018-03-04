@@ -1,4 +1,4 @@
 package com.kodilla.rps;
 
-public class Rock {
+public class Rock  { //implements Figure {
 }
