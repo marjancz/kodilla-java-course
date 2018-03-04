@@ -19,8 +19,7 @@ public class NormalGame {
 
         while (!end) {
 
-            System.out.println("Please type your choice: scissor(1) ,Rock(2),Paper(3) " +
-                    "\nor " +
+            System.out.println("Please type your choice: scissor(1) ,Rock(2),Paper(3) \nor " +
                     "\nnew game(4) " +
                     "\nexit game(x)");
             int playerMove = sc.nextInt();
