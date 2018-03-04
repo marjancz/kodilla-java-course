@@ -25,6 +25,12 @@ public class NormalGame {
             int playerMove = sc.nextInt();
             int compMove = (int) (Math.random() * 3 + 1);
 
+            if(playerMove == 4){
+
+            }
+            if(playerMove == x) {
+
+            }
             if (playerMove == compMove) {
                 tie++;
                 System.out.println("Your choice is: " + playerMove +
