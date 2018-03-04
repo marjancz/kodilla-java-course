@@ -10,8 +10,9 @@ public class TaskList {
         tasks = new ArrayList<>();
     }
 
-    public void addTask(String task) {
+    public List<String> addTask(String task) {
         tasks.add(task);
+        return tasks;
     }
 
     public List<String> getTasks() {

@@ -14,7 +14,7 @@ public class BoardTestSuite {
         Board board = context.getBean(Board.class);
 
         //When
-        board.addDoneList("Task 3 to do");
+        board.addToDoList("Task 3 to do");
         board.addToDoList("Task 4 to do");
         board.addInProgressList("Task 4 in progress");
         board.addDoneList("Task 3 has been done");
