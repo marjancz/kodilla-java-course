@@ -10,7 +10,8 @@ public class BoardTestSuite {
     public void testTaskAdd() {
 
         //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
 
         //When
