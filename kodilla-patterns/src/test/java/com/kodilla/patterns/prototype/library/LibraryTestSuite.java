@@ -33,7 +33,6 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
 
-        //making a deep copy of object board
         Library deepClonedLibrary = null;
         try {
         deepClonedLibrary = library.deepCopy();
@@ -44,6 +43,7 @@ public class LibraryTestSuite {
 
         //When
         library.getBooks().remove(book5);
+
         //Then
         System.out.println(library);
         System.out.println(clonedLibrary);
