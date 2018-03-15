@@ -7,6 +7,7 @@ public final class PaintingTask implements Task {
     final String taskName;
     final String color;
     final String whatToPaint;
+    private boolean isTaskExecuted;
 
     public PaintingTask(final String taskName, final String color,
                         final String whatToPaint) {
@@ -19,6 +20,7 @@ public final class PaintingTask implements Task {
     public List<String> executeTask() {
         List<String> paintingTaskList = new ArrayList<>();
         paintingTaskList.add(taskName);
+        isTaskExecuted = true;
         return paintingTaskList;
     }
 
@@ -29,10 +31,6 @@ public final class PaintingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if (executeTask().contains(taskName)) {
-            return true;
-        } else {
-            return false;
-        }
+        return isTaskExecuted;
     }
 }
