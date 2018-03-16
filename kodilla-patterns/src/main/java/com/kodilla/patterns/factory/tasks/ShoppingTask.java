@@ -7,6 +7,7 @@ public final class ShoppingTask implements Task {
     final String taskName;
     final String whatToBuy;
     final double quantity;
+    private boolean isTaskExecuted;
 
     public ShoppingTask(final String taskName, final String whatToBuy,
                         final double quantity) {
@@ -19,6 +20,7 @@ public final class ShoppingTask implements Task {
     public List<String> executeTask() {
         List<String> shoppingTaskList = new ArrayList<>();
         shoppingTaskList.add(taskName);
+        isTaskExecuted = true;
         return shoppingTaskList;
     }
 
@@ -29,10 +31,6 @@ public final class ShoppingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if (executeTask().contains(taskName)) {
-            return true;
-        } else {
-            return false;
-        }
+        return isTaskExecuted;
     }
 }
