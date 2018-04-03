@@ -60,7 +60,6 @@ public class ExtendedGame {
                         System.out.println("Comp has " + loss + " wins. You've lost the game :(");
                     }
                 }
-                //throw new NullPointerException("end");
             }
         }
     }

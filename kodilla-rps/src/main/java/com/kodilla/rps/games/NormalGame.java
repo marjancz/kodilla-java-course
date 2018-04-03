@@ -35,11 +35,11 @@ public class NormalGame {
                                     "\nYou have " + win + " wins and " + loss + " losses");
                             break;
                         case 0:
-                            tie++;
                             System.out.println("Your choice is: " + playerMove.toString() +
                                     "\nComputer chose: " + compMove.toString() +
                                     "\nResult: It's a tie" +
                                     "\nYou have " + win + " wins and " + loss + " losses");
+                            tie++;
                             break;
                         case -1:
                             loss++;
@@ -60,7 +60,6 @@ public class NormalGame {
                         System.out.println("Comp has " + loss + " wins. You've lost the game :(");
                     }
                 }
-                throw new NullPointerException("end");
             }
         }
     }
