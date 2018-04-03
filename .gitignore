@@ -1,6 +1,11 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
+gradle/
+gradlew.bat
+kodilla-spring-web/out/test/
+out/
+
 
 ### STS ###
 .apt_generated
