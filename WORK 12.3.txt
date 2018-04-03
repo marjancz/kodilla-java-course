@@ -1,0 +1,117 @@
+CREATE TABLE ISSUESLISTS (
+    ID		SERIAL PRIMARY KEY,
+    NAME   	VARCHAR(100),
+);
+
+CREATE TABLE ISSUES ( 
+        ID 		SERIAL PRIMARY KEY, 
+	ISSUESLISTS_ID 		INT UNSIGNED NOT NULL, 
+	SUMMARY 		VARCHAR(100) NOT NULL CHARSET utf8
+	DESCRIPTION		VARCHAR(1024) CHARSET utf8
+	USER_ID_ASSIGNEDTO	INT USIGNED NOT NULL,
+	FOREIGN KEY (ISSUESLISTS_ID) REFERENCES ISSUESLISTS(ID),
+	FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+);
+
+INSERT INTO ISSUESLISTS (NAME) VALUES ("ToDo");
+INSERT INTO ISSUESLISTS (NAME) VALUES ("In progress");
+INSERT INTO ISSUESLISTS (NAME) VALUES ("Done");
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (1, "Microservice for taking temperature", "Write and test the microservice taking the temperaure from external service", 1);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (1, "HQLs for analysis", "Prepare some HQL queries for analysis", 1);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (1, "Temperatures entity", "Prepare entity for temperatures", 2);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (1, "Own logger", "Refactor company logger to meet our needs", 2);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (1, "Optimize searching", "Archive data searching has to be optimized", 2);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (2, "Changing tires", "Changing tires on summer type", 1);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (2, "Changing oil", "Changing oil after 10k km.", 4);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (2, "Brake pads", "Service control or changing brake pads", 4);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (2, "Timing belt replacement", "Service timing belt replacement", 4);			
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (2, "Traction control", "Wheel convergence adjustment", 5);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (3, "First task", "First task to do", 3);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (3, "Second task", "Second task to do", 3);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (3, "Third task", "Third task to do", 5);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (3, "Fourth task", "Fourth task to do", 3);
+
+INSERT INTO ISSUES (ISSUESLISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) 
+VALUES (3, "Fifth task", "Fifth task to to", 5);
+
+COMMIT;
+
+*****************************************************************************************************
+ISSUESLISTS
+;===============;
+|ID |NAME       |
+|===|===========|
+|1  |ToDo       |
+|---|-----------|
+|2  |In progress|
+|---|-----------|
+|3  |Done       |
+*===============*
+
+ISSUES
+;=====================================================================================================;
+||ID |ISSUESLISTS_ID |      SUMMARY      |              DESCRIPTION             | USER_ID_ASSIGNEDTO ||
+||===|===============|===================|======================================|====================||
+|| 1 |       1       |Microservice for   |Write and test the microservice taking|          1         ||
+||   |               |taking temperature |the temperaure from external service  |                    ||
+||---|---------------|-------------------|--------------------------------------|--------------------||             
+|| 2 |       1       |HQLs for analysis  |Prepare some HQL queries for analysis |          1         ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 3 |       1       |Temperatures entity|Prepare entity for temperatures       |          2         ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 4 |       1       |Own logger         |Refactor company logger               |          2         ||
+||   |               |                   |to meet our needs                     |                    ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 5 |       1       |Optimize searching |Archive data searching has to be      |          2         ||
+||   |               |                   |optimized                             |                    ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 6 |       2       |Changing tires     |Changing tires on summer type         |          1         ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 7 |       2       |Changing oil	 |Changing oil after 10k km.	        |          4         ||             
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 8 |       2       |Brake pads	 |Service control or changing brake pads|	   4	     ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 9 |       2       |Timing belt	 |Service timing belt replacement       |	   4	     ||
+||   |               |replacement	 |				        |		     ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 10|	     2	     |Traction control	 |Wheel convergence adjustment	        |	   5	     ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 11|	     3	     |First task	 |First task to do  		        |	   3	     ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 12|	     3       |Second task	 |Second task to do		        |	   3	     ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 13|	     3	     |Third task	 |Third task to do		        |	   5	     ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 14|       3       |Fourth task	 |Fourth task to do		        |	   3	     ||
+||---|---------------|-------------------|--------------------------------------|--------------------||
+|| 15|       3       |Fifth task	 |Fifth task to to		        |	   5	     ||
+*=====================================================================================================*
+
