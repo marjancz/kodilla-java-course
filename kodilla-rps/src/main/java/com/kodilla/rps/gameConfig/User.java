@@ -1,4 +1,4 @@
-package com.kodilla.rps;
+package com.kodilla.rps.gameConfig;
 
 import java.util.Scanner;
 
@@ -23,6 +23,6 @@ public class User {
                     "\n(maximum 8 characters)");
             user = scanner.next();
         }
-        return user;
+        return user.toUpperCase();
     }
 }
