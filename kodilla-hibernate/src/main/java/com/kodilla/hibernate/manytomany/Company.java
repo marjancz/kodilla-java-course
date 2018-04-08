@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveCompanyNamesBy3FirstLetters",
+        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(company_name FROM 1 FOR 3) = :COMPANY_NAME",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

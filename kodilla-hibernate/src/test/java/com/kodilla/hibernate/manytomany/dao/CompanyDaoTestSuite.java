@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
@@ -52,12 +54,46 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-//        try {
-//            companyDao.delete(softwareMachineId);
-//            companyDao.delete(dataMaestersId);
-//            companyDao.delete(greyMatterId);
-//        } catch (Exception e) {
-//            //do nothing
-//        }
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+    }
+
+    @Test
+    public void testNamedQueries() {
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+
+        companyDao.save(softwareMachine);
+        String softwareMachineName = softwareMachine.getName();
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        String dataMaestersName = dataMaesters.getName();
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        String greyMatterNamed = greyMatter.getName();
+        int greyMatterId = greyMatter.getId();
+
+        //When
+        List<Company> listCompany = companyDao.retrieveCompanyNamesBy3FirstLetters("Sof");
+
+        //Then
+        Assert.assertEquals(1, listCompany.size());
+
+        //ClearUp
+        companyDao.deleteAll();
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
 }
