@@ -25,7 +25,7 @@ public class InvoiceDaoTestSuite {
 
         Item item1 = new Item(product1, new BigDecimal(12.99),
                 3, new BigDecimal(38.97));
-        Item item2 = new Item(product2, new BigDecimal(9.5),
+        Item item2 = new Item(product2, new BigDecimal(9.50),
                 5, new BigDecimal(47.50));
         Item item3 = new Item(product3, new BigDecimal(25.00),
                 3, new BigDecimal(75.00));
