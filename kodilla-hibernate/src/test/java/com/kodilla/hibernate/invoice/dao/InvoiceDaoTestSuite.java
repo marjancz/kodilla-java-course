@@ -20,6 +20,7 @@ public class InvoiceDaoTestSuite {
 
     @Test
     public void testInvoiceDoaSave() {
+
         //Given
         Product product1 = new Product("Hammer");
         Product product2 = new Product("Screw driver");
