@@ -87,7 +87,6 @@ public class CompanyDaoTestSuite {
         Assert.assertEquals(1, listCompany.size());
 
         //ClearUp
-        companyDao.deleteAll();
         try {
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
