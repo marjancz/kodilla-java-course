@@ -10,6 +10,12 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES WHERE SUBSTRING(company_name FROM 1 FOR 3) = :COMPANY_NAME",
         resultClass = Company.class
 )
+
+@NamedQuery(
+        name = "Company.retrieveCompanyNamesByNameLike",
+        query = "FROM Company WHERE company_name LIKE = :ARG"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

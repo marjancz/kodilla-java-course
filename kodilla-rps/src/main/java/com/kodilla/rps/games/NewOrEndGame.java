@@ -37,6 +37,7 @@ public class NewOrEndGame {
                 if (choice.toUpperCase().equals("Y")) {
                 System.out.println("Bye :)");
                 end = true;
+                System.exit(0);
             } else {
                 newGame();
                 end = true;
