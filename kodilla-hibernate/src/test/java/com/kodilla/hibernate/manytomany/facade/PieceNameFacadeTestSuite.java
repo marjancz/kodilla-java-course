@@ -33,14 +33,8 @@ public class PieceNameFacadeTestSuite {
         Company nothingMatters = new Company("Nothing Matters");
 
         companyDao.save(softwareZickenZack);
-        String softwareZickenZackName = softwareZickenZack.getName();
-        int softwareZickenZackId = softwareZickenZack.getId();
         companyDao.save(dataMakers);
-        String dataMakersName = dataMakers.getName();
-        int dataMakersId = dataMakers.getId();
         companyDao.save(nothingMatters);
-        String nothingMattersNamed = nothingMatters.getName();
-        int nothingMattersId = nothingMatters.getId();
 
         //When
         List<Company> listCompany = pieceNameFacade.retrieveCompanyNamesByNameLike("%Zic%");
@@ -50,9 +44,9 @@ public class PieceNameFacadeTestSuite {
 
         //ClearUp
         try {
-            companyDao.delete(softwareZickenZackId);
-            companyDao.delete(dataMakersId);
-            companyDao.delete(nothingMattersId);
+            companyDao.delete(softwareZickenZack);
+            companyDao.delete(dataMakers);
+            companyDao.delete(nothingMatters);
         } catch (Exception e) {
             //do nothing
         }
