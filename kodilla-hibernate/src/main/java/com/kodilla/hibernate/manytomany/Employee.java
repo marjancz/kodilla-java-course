@@ -13,7 +13,7 @@ import java.util.List;
 
         @NamedQuery(
                 name = "Employee.retrieveEmployeesByNameLike",
-                query = "FROM Employee WHERE lastName LIKE = :ARG"
+                query = "FROM Employee WHERE lastName LIKE :ARG"
         )
 })
 @Entity

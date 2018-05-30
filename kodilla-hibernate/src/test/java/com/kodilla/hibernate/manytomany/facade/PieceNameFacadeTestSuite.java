@@ -67,9 +67,15 @@ public class PieceNameFacadeTestSuite {
         List<Employee> listEmployee = pieceNameFacade.retrieveEmployeesByNameLike("%ith%");
 
         //Then
-        Assert.assertEquals(2, listEmployee.size());
+        try {
+            Assert.assertEquals(2, listEmployee.size());
+        } catch (Exception e) {
 
-        //CleanUp
-        employeeDao.deleteAll();
+        } finally {
+            //CleanUp
+            employeeDao.delete(johnSmith);
+            employeeDao.delete(stephanieSmith);
+            employeeDao.delete(lindaKovalsky);
+        }
     }
 }
