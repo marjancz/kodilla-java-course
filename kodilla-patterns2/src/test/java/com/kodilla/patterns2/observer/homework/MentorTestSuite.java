@@ -13,7 +13,7 @@ public class MentorTestSuite {
         Mentor erwinMuzyczuk = new Mentor("Erwin Muzyczuk");
         Mentor mentor2 = new Mentor("Mentor 2");
         student1.registerObserver(erwinMuzyczuk);
-        //student2.registerObserver(erwinMuzyczuk);
+        student2.registerObserver(erwinMuzyczuk);
         student2.registerObserver(mentor2);
 
         //When
@@ -24,7 +24,7 @@ public class MentorTestSuite {
         student2.addWork("https://github.com/student/work2");
 
         //Then
-        assertEquals(3, erwinMuzyczuk.getUpdateCount());
+        assertEquals(5, erwinMuzyczuk.getUpdateCount());
         assertEquals(2, mentor2.getUpdateCount());
     }
 }
