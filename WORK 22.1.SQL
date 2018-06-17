@@ -1,0 +1,24 @@
+DROP PROCEDURE IF EXISTS Reader;
+
+DELIMITER $$
+
+CREATE PROCEDURE Reader(readerId int)
+
+BEGIN
+	
+   DECLARE errorInfo varchar(255) DEFAULT 'Wrong Id number!';
+
+  IF readerId <= 0 THEN
+    SELECT errorInfo;
+
+	ELSE 
+    SELECT READER_ID, FIRSTNAME, LASTNAME, PESELID FROM READERS
+	  WHERE READER_ID = readerId;
+
+	END IF;
+
+END $$
+
+DELIMITER ;
+
+CALL Reader(2);
